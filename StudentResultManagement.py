@@ -1,7 +1,8 @@
 students = [
-    {"name" : "Aisha", "marks" : [90, 81, 97, 80]},
-    {"name" : "Rafi", "marks" : [51, 75, 43, 59]},
-    {"name" : "Nila", "marks" : [74, 67, 87, 81]}
+    {"name" : "Asha", "marks" : [80, 75, 90]},
+    {"name" : "Rafi", "marks" : [45, 50, 55]},
+    {"name" : "Nila", "marks" : [92, 88, 95]},
+    {"name" : "Rafik", "marks" : [100, 72, 85]}
 ]
 
 passedStudents = []
@@ -18,6 +19,9 @@ for student in students:
     total = sum(student["marks"])
     average = total / len(student["marks"])
 
+    if student["name"] == "Nila":
+        continue
+
     if average >= 50:
         passedStudents.append(student["name"])
 
@@ -25,8 +29,12 @@ for student in students:
         highestAverage = average
         highestMarksStudent = student["name"]
 
-    if student["name"] == "Nila":
-        continue
+    if average >= 80:
+        topStudents.append(student["name"])
 
     print(f"Name: {student['name']} Average: {average:.2f}")
 
+print(f"\nPassed Students : {passedStudents}")
+print(f"Highest Scoring Srudents : {highestMarksStudent}")
+print(f"Excellent Students : {topStudents}")
+print(f"Unique Marks : {uniqueMarks}")
