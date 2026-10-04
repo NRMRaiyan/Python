@@ -35,6 +35,6 @@ for student in students:
     print(f"Name: {student['name']} Average: {average:.2f}")
 
 print(f"\nPassed Students : {passedStudents}")
-print(f"Highest Scoring Srudents : {highestMarksStudent}")
+print(f"Highest Scoring Students : {highestMarksStudent}")
 print(f"Excellent Students : {topStudents}")
 print(f"Unique Marks : {uniqueMarks}")
