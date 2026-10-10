@@ -16,13 +16,13 @@ def calculate_percentage(cgpa):
     return (cgpa / 4.0) * 100
 
 def display_student(student_dict, percentage):
-    print(f"* Name: {student_dict['name']}")
-    print(f"* ID: {student_dict['id']}")
-    print(f"* Department: {student_dict['department']}")
-    print(f"* CGPA: {student_dict['cgpa']:.2f}")
-    print(f"* Percentage: {percentage:.2f}%")
+    print(f"\nName: {student_dict['name']}")
+    print(f"ID: {student_dict['id']}")
+    print(f"Department: {student_dict['department']}")
+    print(f"CGPA: {student_dict['cgpa']:.2f}")
+    print(f"Percentage: {percentage:.2f}%")
 
-if __name__ == "__main__":
+def main():
     
     name = input("Enter student name: ")
     student_id = input("Enter student ID: ")
@@ -49,3 +49,5 @@ if __name__ == "__main__":
         percentage = calculate_percentage(student_info["cgpa"])
         
         display_student(student_info, percentage)
+
+main()
