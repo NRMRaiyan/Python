@@ -1,8 +1,8 @@
-//Question:
-//Create a “Student Admission Checker”. The program should take a student name, SSC GPA, HSC 
-//GPA, and admission-test score. Create your own eligibility rules using comparisons, logical 
-//operators, and if/elif/else. Print a clean final summary showing the student data and 
-//admission status.
+#Question:
+# Create a “Student Admission Checker”. The program should take a student name, SSC GPA, HSC 
+# GPA, and admission-test score. Create your own eligibility rules using comparisons, logical 
+# operators, and if/elif/else. Print a clean final summary showing the student data and 
+# admission status.
 
 name = input("Enter your name: ")
 sscGpa = float(input("Enter your SSC GPA: "))
