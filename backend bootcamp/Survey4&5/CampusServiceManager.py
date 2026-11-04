@@ -1,4 +1,4 @@
-
+#(A) Student Results
 class Student:
     def __init__(self, name, student_id, marks):
         # Validate marks before storing the student data
