@@ -39,3 +39,63 @@ student2 = Student("Nila", "102", 47)
 
 print(student1)
 print(student2)
+
+
+#(B) Student Wallet - Bank Account
+class BankAccount:
+
+    # Class variable
+    bank_name = "Campus Bank"
+
+    def __init__(self, account_holder, opening_balance):
+
+        if (not isinstance(opening_balance, (int, float))
+                or isinstance(opening_balance, bool)):
+            raise ValueError("Opening balance must be numeric")
+
+        if opening_balance < 0:
+            raise ValueError("Opening balance cannot be negative")
+
+        self.account_holder = account_holder
+        self._balance = opening_balance
+
+    def deposit(self, amount):
+
+        if (not isinstance(amount, (int, float))
+                or isinstance(amount, bool)):
+            raise ValueError("Deposit amount must be numeric")
+
+        if amount <= 0:
+            raise ValueError("Deposit amount must be positive")
+
+        self._balance += amount
+
+    def withdraw(self, amount):
+
+        if (not isinstance(amount, (int, float))
+                or isinstance(amount, bool)):
+            raise ValueError("Withdrawal amount must be numeric")
+
+        if amount <= 0:
+            raise ValueError("Withdrawal amount must be positive")
+
+        if amount > self._balance:
+            raise ValueError("Insufficient balance")
+
+        self._balance -= amount
+
+    def show_balance(self):
+        return self._balance
+
+
+# Testing the BankAccount class
+
+account = BankAccount("Rafi", 1000)
+
+print("Bank:", BankAccount.bank_name)
+print("Account Holder:", account.account_holder)
+
+account.deposit(500)
+account.withdraw(300)
+
+print("Final Balance:", account.show_balance())
