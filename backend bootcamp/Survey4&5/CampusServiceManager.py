@@ -99,3 +99,77 @@ account.deposit(500)
 account.withdraw(300)
 
 print("Final Balance:", account.show_balance())
+
+#(C) Staff Hierarchy
+class Employee:
+    def __init__(self, name, base_salary):
+        if (not isinstance(base_salary, (int, float))
+                or isinstance(base_salary, bool)):
+            raise ValueError("Base salary must be numeric")
+
+        if base_salary < 0:
+            raise ValueError("Base salary cannot be negative")
+
+        self.name = name
+        self.base_salary = base_salary
+
+    def calculate_salary(self):
+        return self.base_salary
+
+    def summary(self):
+        return (
+            f"Name: {self.name}, "
+            f"Role: {self.__class__.__name__}, "
+            f"Salary: {self.calculate_salary()}"
+        )
+
+
+# Child class: Developer
+# Inheritance: Developer inherits from Employee
+class Developer(Employee):
+    def __init__(self, name, base_salary, bonus):
+        if (not isinstance(bonus, (int, float))
+                or isinstance(bonus, bool)):
+            raise ValueError("Bonus must be numeric")
+
+        if bonus < 0:
+            raise ValueError("Bonus cannot be negative")
+
+        super().__init__(name, base_salary)
+        self.bonus = bonus
+
+    # Method overriding
+    def calculate_salary(self):
+        return self.base_salary + self.bonus
+
+
+# Child class: Manager
+# Inheritance: Manager inherits from Employee
+class Manager(Employee):
+    def __init__(self, name, base_salary, allowance):
+        if (not isinstance(allowance, (int, float))
+                or isinstance(allowance, bool)):
+            raise ValueError("Allowance must be numeric")
+
+        if allowance < 0:
+            raise ValueError("Allowance cannot be negative")
+
+        super().__init__(name, base_salary)
+        self.allowance = allowance
+
+    # Method overriding
+    def calculate_salary(self):
+        return self.base_salary + self.allowance
+
+
+# Driver code for Part (C)
+
+employee1 = Employee("Rafi", 25000)
+employee2 = Developer("Nila", 30000, 5000)
+employee3 = Manager("Karim", 40000, 10000)
+
+# Polymorphism: different employee objects in one list
+employees = [employee1, employee2, employee3]
+
+for employee in employees:
+    print(employee.summary())
