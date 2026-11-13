@@ -173,3 +173,5 @@ employees = [employee1, employee2, employee3]
 
 for employee in employees:
     print(employee.summary())
+
+#(D) Book Collections and Borrowing
